@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GKEDIT AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">⚡ GKEDIT AI</div>
+      <div class="header-actions">
+        <button class="icon-btn-small" id="ttsToggleBtn" onclick="toggleSpeechOutput()" title="Voice Output Toggle">🔊</button>
+      </div>
+    </header>
+
+    <!-- Mode Selector Tabs -->
+    <div class="mode-bar">
+      <button class="mode-btn active" id="chatModeBtn" onclick="switchMode('chat')">💬 Smart Chat</button>
+      <button class="mode-btn" id="imageModeBtn" onclick="switchMode('image')">🎨 Image Gen</button>
+    </div>
+
+    <!-- Main Output / Messages Area -->
+    <main class="chat-area" id="chatArea">
+      <div class="message ai">
+        హలో GK EDIT! నేను సిద్ధంగా ఉన్నాను. ఏదైనా అడగండి, మాట్లాడండి లేదా ఇమేజ్ ప్రాంప్ట్ ఇవ్వండి!
+      </div>
+    </main>
+
+    <!-- Bottom Action Bar -->
+    <footer class="input-area">
+      <button class="action-btn" id="micBtn" onclick="handleMicClick()" title="Voice Input">🎤</button>
+      <input type="text" id="userInput" placeholder="Ask anything to GKEDIT AI..." autocomplete="off" />
+      <button class="action-btn send" id="sendBtn" onclick="processInput()">➤</button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
